@@ -1,1384 +1,1019 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="Arabic From Zero — a beginner-friendly Arabic dictionary and learning platform.">
+  <title>Arabic From Zero — Arabic Dictionary</title>
 
-    <title>Arabic From Zero</title>
+  <meta
+    name="description"
+    content="Arabic From Zero — a beautiful Arabic dictionary for beginners."
+  >
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
 
-<header class="navbar">
+  <header class="site-header">
 
-    <a href="#" class="logo">
-        <span class="logo-arabic">ع</span>
-        <span>ARABIC FROM ZERO</span>
-    </a>
+    <div class="header-inner">
 
-    <nav>
+      <a href="#" class="logo">
+        <span class="logo-arabic">العربية</span>
+        <span class="logo-title">ARABIC FROM ZERO</span>
+      </a>
+
+      <nav class="main-nav">
+
         <a href="#dictionary">Dictionary</a>
-        <a href="#learn">Learn</a>
-        <a href="#quiz">Quiz</a>
+        <a href="#verbs">Verbs</a>
+        <a href="#alphabet">Alphabet</a>
         <a href="#about">About</a>
-    </nav>
 
-</header>
+      </nav>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <p class="eyebrow">A NEW WAY TO LEARN ARABIC</p>
-
-        <h1>
-            Arabic<br>
-            <span>from zero.</span>
-        </h1>
-
-        <p class="hero-description">
-            Learn Arabic vocabulary, pronunciation and grammar
-            one word at a time.
-        </p>
-
-        <a href="#dictionary" class="hero-button">
-            Explore the dictionary
-        </a>
+      <button class="menu-button" aria-label="Open menu">
+        ☰
+      </button>
 
     </div>
 
-    <div class="hero-arabic">
-        عَرَبِيَّة
-    </div>
-
-</section>
+  </header>
 
 
-<!-- =========================
-     SEARCH
-========================= -->
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
 
-<section class="search-section" id="dictionary">
+  <main>
 
-    <div class="section-label">
-        <span>01</span>
-        DICTIONARY
-    </div>
+    <section class="hero">
 
-    <h2>Find a word.</h2>
+      <div class="hero-small">
+        A VISUAL ARABIC DICTIONARY
+      </div>
 
-    <div class="search-box">
+      <h1>
+        ARABIC<br>
+        <span>FROM ZERO</span>
+      </h1>
+
+      <p class="hero-arabic">
+        العربية من الصفر
+      </p>
+
+      <p class="hero-description">
+        Learn Arabic one word at a time.
+        Discover vocabulary, roots, verbs and expressions
+        through a dictionary designed like a book.
+      </p>
+
+      <!-- SEARCH -->
+
+      <div class="search-box">
 
         <span class="search-icon">⌕</span>
 
         <input
-            type="search"
-            id="searchInput"
-            placeholder="Search Arabic, English, Russian or Armenian..."
-            autocomplete="off"
+          type="search"
+          id="searchInput"
+          placeholder="Search Arabic, English, Russian or Armenian..."
+          autocomplete="off"
         >
 
-        <button id="clearSearch" aria-label="Clear search">
-            ×
-        </button>
-
-    </div>
-
-    <div class="filters">
-
-        <button class="filter active" data-level="all">
-            All
-        </button>
-
-        <button class="filter" data-level="A0">
-            A0
-        </button>
-
-        <button class="filter" data-level="A1">
-            A1
-        </button>
-
-        <button class="filter" data-level="A2">
-            A2
-        </button>
-
-        <button class="filter" data-level="B1">
-            B1
-        </button>
-
-    </div>
-
-    <div class="category-filters">
-
-        <button class="category active" data-category="all">
-            All categories
-        </button>
-
-        <button class="category" data-category="greetings">
-            Greetings
-        </button>
-
-        <button class="category" data-category="people">
-            People
-        </button>
-
-        <button class="category" data-category="home">
-            Home
-        </button>
-
-        <button class="category" data-category="food">
-            Food
-        </button>
-
-        <button class="category" data-category="verbs">
-            Verbs
-        </button>
-
-        <button class="category" data-category="adjectives">
-            Adjectives
-        </button>
-
-    </div>
-
-
-    <!-- Results -->
-
-    <div class="results-header">
-
-        <span id="resultCount">
-            Loading...
+        <span class="search-arabic">
+          ابحث
         </span>
 
-        <button id="favoritesOnly">
-            ♡ Favorites
-        </button>
+      </div>
 
-    </div>
+    </section>
 
-    <div id="dictionaryGrid" class="dictionary-grid"></div>
 
-</section>
+    <!-- =====================================================
+         ALPHABET
+    ====================================================== -->
 
+    <section class="alphabet-section" id="alphabet">
 
-<!-- =========================
-     WORD OF THE DAY
-========================= -->
+      <div class="section-label">
+        THE ALPHABET
+      </div>
 
-<section class="word-day">
-
-    <div class="word-day-inner">
-
-        <div>
-
-            <p class="eyebrow">
-                WORD OF THE DAY
-            </p>
-
-            <h2 id="dailyArabic">
-                —
-            </h2>
-
-            <p id="dailyTranscription">
-                —
-            </p>
-
-        </div>
-
-        <div class="daily-translation">
-
-            <p id="dailyEnglish">—</p>
-            <p id="dailyRussian">—</p>
-            <p id="dailyArmenian">—</p>
-
-        </div>
-
-        <div class="daily-example">
-
-            <p id="dailyExample">
-                —
-            </p>
-
-            <button id="dailyListen">
-                🔊 Listen
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     LEARN
-========================= -->
-
-<section class="learn-section" id="learn">
-
-    <div class="section-label">
-        <span>02</span>
-        LEARN
-    </div>
-
-    <h2>
-        Start with<br>
-        the basics.
-    </h2>
-
-    <p class="section-intro">
-        Arabic becomes easier when you learn vocabulary
-        together with the structures that surround it.
-    </p>
-
-
-    <div class="learning-levels">
-
-        <article class="level-card">
-
-            <span class="level-number">00</span>
-
-            <h3>A0</h3>
-
-            <p>
-                Alphabet, sounds, vowels and the first Arabic words.
-            </p>
-
-            <button onclick="startLevel('A0')">
-                Start A0 →
-            </button>
-
-        </article>
-
-
-        <article class="level-card">
-
-            <span class="level-number">01</span>
-
-            <h3>A1</h3>
-
-            <p>
-                Everyday vocabulary, simple sentences and basic verbs.
-            </p>
-
-            <button onclick="startLevel('A1')">
-                Start A1 →
-            </button>
-
-        </article>
-
-
-        <article class="level-card">
-
-            <span class="level-number">02</span>
-
-            <h3>A2</h3>
-
-            <p>
-                More vocabulary, conversations and useful expressions.
-            </p>
-
-            <button onclick="startLevel('A2')">
-                Start A2 →
-            </button>
-
-        </article>
-
-
-        <article class="level-card">
-
-            <span class="level-number">03</span>
-
-            <h3>B1</h3>
-
-            <p>
-                Intermediate vocabulary and more natural Arabic.
-            </p>
-
-            <button onclick="startLevel('B1')">
-                Start B1 →
-            </button>
-
-        </article>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     QUIZ
-========================= -->
-
-<section class="quiz-section" id="quiz">
-
-    <div class="section-label">
-        <span>03</span>
-        PRACTICE
-    </div>
-
-    <h2>
-        Test what<br>
-        you remember.
-    </h2>
-
-    <div class="quiz-card">
-
-        <p class="quiz-label">
-            WHAT DOES THIS WORD MEAN?
-        </p>
-
-        <div id="quizArabic" class="quiz-arabic">
-            —
-        </div>
-
-        <button id="quizListen">
-            🔊
-        </button>
-
-        <div id="quizAnswers" class="quiz-answers"></div>
-
-        <p id="quizFeedback" class="quiz-feedback"></p>
-
-        <button id="nextQuestion" class="next-button">
-            Next question →
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="about-section" id="about">
-
-    <div class="section-label">
-        <span>04</span>
-        ABOUT
-    </div>
-
-    <div class="about-grid">
+      <div class="section-heading-row">
 
         <h2>
-            Arabic should<br>
-            be accessible<br>
-            to everyone.
+          الحروف العربية
         </h2>
+
+        <span>
+          28 LETTERS
+        </span>
+
+      </div>
+
+      <div class="alphabet">
+
+        <button data-letter="ا">ا</button>
+        <button data-letter="ب">ب</button>
+        <button data-letter="ت">ت</button>
+        <button data-letter="ث">ث</button>
+        <button data-letter="ج">ج</button>
+        <button data-letter="ح">ح</button>
+        <button data-letter="خ">خ</button>
+        <button data-letter="د">د</button>
+        <button data-letter="ذ">ذ</button>
+        <button data-letter="ر">ر</button>
+        <button data-letter="ز">ز</button>
+        <button data-letter="س">س</button>
+        <button data-letter="ش">ش</button>
+        <button data-letter="ص">ص</button>
+        <button data-letter="ض">ض</button>
+        <button data-letter="ط">ط</button>
+        <button data-letter="ظ">ظ</button>
+        <button data-letter="ع">ع</button>
+        <button data-letter="غ">غ</button>
+        <button data-letter="ف">ف</button>
+        <button data-letter="ق">ق</button>
+        <button data-letter="ك">ك</button>
+        <button data-letter="ل">ل</button>
+        <button data-letter="م">م</button>
+        <button data-letter="ن">ن</button>
+        <button data-letter="ه">ه</button>
+        <button data-letter="و">و</button>
+        <button data-letter="ي">ي</button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DICTIONARY
+    ====================================================== -->
+
+    <section class="dictionary-section" id="dictionary">
+
+      <div class="dictionary-header">
 
         <div>
 
-            <p>
-                Arabic From Zero is a personal project created
-                to make Arabic vocabulary easier to understand
-                for complete beginners.
-            </p>
+          <div class="section-label">
+            DICTIONARY
+          </div>
 
-            <p>
-                Every word connects Arabic with pronunciation,
-                English, Russian and Armenian — with examples
-                that show how the word actually works.
-            </p>
+          <h2>
+            Essential Words
+          </h2>
 
         </div>
 
-    </div>
+        <div class="dictionary-count">
+          <span id="wordCount">0</span>
+          WORDS
+        </div>
 
-</section>
+      </div>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+      <!-- FILTERS -->
 
-<footer>
+      <div class="filters">
+
+        <button class="filter active" data-category="all">
+          ALL
+        </button>
+
+        <button class="filter" data-category="verb">
+          VERBS
+        </button>
+
+        <button class="filter" data-category="noun">
+          NOUNS
+        </button>
+
+        <button class="filter" data-category="adjective">
+          ADJECTIVES
+        </button>
+
+        <button class="filter" data-category="expression">
+          EXPRESSIONS
+        </button>
+
+      </div>
+
+
+      <!-- ===================================================
+           BOOK
+      ==================================================== -->
+
+      <div class="book">
+
+        <div class="book-top">
+
+          <span>
+            ARABIC FROM ZERO
+          </span>
+
+          <span>
+            DICTIONARY
+          </span>
+
+        </div>
+
+
+        <div
+          class="dictionary-grid"
+          id="dictionaryGrid"
+        >
+
+          <!-- ===============================================
+               WORD 1
+          ================================================ -->
+
+          <article
+            class="word-card"
+            data-category="verb"
+            data-letter="ا"
+          >
+
+            <div class="word-number">
+              001
+            </div>
+
+            <div class="word-type">
+              VERB · FORM I
+            </div>
+
+            <h3 class="arabic-word">
+              أَكَلَ
+            </h3>
+
+            <div class="transliteration">
+              akala
+            </div>
+
+            <div class="translation">
+
+              <strong>to eat</strong>
+
+              <span>
+                есть · ուտել
+              </span>
+
+            </div>
+
+            <div class="word-root">
+              ROOT · أ ـ ك ـ ل
+            </div>
+
+            <div class="example">
+
+              <span class="example-label">
+                EXAMPLE
+              </span>
+
+              <p class="example-arabic">
+                أَكَلَ الطَّالِبُ التُّفَّاحَةَ.
+              </p>
+
+              <p>
+                The student ate the apple.
+              </p>
+
+              <p>
+                Ученик съел яблоко.
+              </p>
+
+              <p>
+                Ուսանողը կերավ խնձորը։
+              </p>
+
+            </div>
+
+            <button class="details-button">
+              VIEW WORD
+              <span>→</span>
+            </button>
+
+          </article>
+
+
+          <!-- ===============================================
+               WORD 2
+          ================================================ -->
+
+          <article
+            class="word-card"
+            data-category="verb"
+            data-letter="ب"
+          >
+
+            <div class="word-number">
+              002
+            </div>
+
+            <div class="word-type">
+              VERB · FORM I
+            </div>
+
+            <h3 class="arabic-word">
+              بَدَأَ
+            </h3>
+
+            <div class="transliteration">
+              bada'a
+            </div>
+
+            <div class="translation">
+
+              <strong>to begin</strong>
+
+              <span>
+                начинать · սկսել
+              </span>
+
+            </div>
+
+            <div class="word-root">
+              ROOT · ب ـ د ـ أ
+            </div>
+
+            <div class="example">
+
+              <span class="example-label">
+                EXAMPLE
+              </span>
+
+              <p class="example-arabic">
+                بَدَأَ الدَّرْسُ.
+              </p>
+
+              <p>
+                The lesson began.
+              </p>
+
+              <p>
+                Урок начался.
+              </p>
+
+              <p>
+                Դասը սկսվեց։
+              </p>
+
+            </div>
+
+            <button class="details-button">
+              VIEW WORD
+              <span>→</span>
+            </button>
+
+          </article>
+
+
+          <!-- ===============================================
+               WORD 3
+          ================================================ -->
+
+          <article
+            class="word-card"
+            data-category="verb"
+            data-letter="ك"
+          >
+
+            <div class="word-number">
+              003
+            </div>
+
+            <div class="word-type">
+              VERB · FORM I
+            </div>
+
+            <h3 class="arabic-word">
+              كَتَبَ
+            </h3>
+
+            <div class="transliteration">
+              kataba
+            </div>
+
+            <div class="translation">
+
+              <strong>to write</strong>
+
+              <span>
+                писать · գրել
+              </span>
+
+            </div>
+
+            <div class="word-root">
+              ROOT · ك ـ ت ـ ب
+            </div>
+
+            <div class="example">
+
+              <span class="example-label">
+                EXAMPLE
+              </span>
+
+              <p class="example-arabic">
+                كَتَبَ الطَّالِبُ رِسَالَةً.
+              </p>
+
+              <p>
+                The student wrote a letter.
+              </p>
+
+              <p>
+                Ученик написал письмо.
+              </p>
+
+              <p>
+                Ուսանողը նամակ գրեց։
+              </p>
+
+            </div>
+
+            <button class="details-button">
+              VIEW WORD
+              <span>→</span>
+            </button>
+
+          </article>
+
+
+          <!-- ===============================================
+               WORD 4
+          ================================================ -->
+
+          <article
+            class="word-card"
+            data-category="verb"
+            data-letter="ذ"
+          >
+
+            <div class="word-number">
+              004
+            </div>
+
+            <div class="word-type">
+              VERB · FORM I
+            </div>
+
+            <h3 class="arabic-word">
+              ذَهَبَ
+            </h3>
+
+            <div class="transliteration">
+              dhahaba
+            </div>
+
+            <div class="translation">
+
+              <strong>to go</strong>
+
+              <span>
+                идти · գնալ
+              </span>
+
+            </div>
+
+            <div class="word-root">
+              ROOT · ذ ـ ه ـ ب
+            </div>
+
+            <div class="example">
+
+              <span class="example-label">
+                EXAMPLE
+              </span>
+
+              <p class="example-arabic">
+                ذَهَبَ إِلَى الْمَدْرَسَةِ.
+              </p>
+
+              <p>
+                He went to school.
+              </p>
+
+              <p>
+                Он пошёл в школу.
+              </p>
+
+              <p>
+                Նա գնաց դպրոց։
+              </p>
+
+            </div>
+
+            <button class="details-button">
+              VIEW WORD
+              <span>→</span>
+            </button>
+
+          </article>
+
+
+          <!-- ===============================================
+               WORD 5
+          ================================================ -->
+
+          <article
+            class="word-card"
+            data-category="verb"
+            data-letter="ق"
+          >
+
+            <div class="word-number">
+              005
+            </div>
+
+            <div class="word-type">
+              VERB · IRREGULAR
+            </div>
+
+            <h3 class="arabic-word">
+              قَالَ
+            </h3>
+
+            <div class="transliteration">
+              qāla
+            </div>
+
+            <div class="translation">
+
+              <strong>to say</strong>
+
+              <span>
+                говорить · ասել
+              </span>
+
+            </div>
+
+            <div class="word-root">
+              ROOT · ق ـ و ـ ل
+            </div>
+
+            <div class="example">
+
+              <span class="example-label">
+                EXAMPLE
+              </span>
+
+              <p class="example-arabic">
+                قَالَ لَهُ: مَرْحَبًا.
+              </p>
+
+              <p>
+                He said to him: Hello.
+              </p>
+
+              <p>
+                Он сказал ему: привет.
+              </p>
+
+              <p>
+                Նա ասաց նրան․ բարև։
+              </p>
+
+            </div>
+
+            <button class="details-button">
+              VIEW WORD
+              <span>→</span>
+            </button>
+
+          </article>
+
+
+          <!-- ===============================================
+               WORD 6
+          ================================================ -->
+
+          <article
+            class="word-card"
+            data-category="verb"
+            data-letter="ف"
+          >
+
+            <div class="word-number">
+              006
+            </div>
+
+            <div class="word-type">
+              VERB · FORM I
+            </div>
+
+            <h3 class="arabic-word">
+              فَهِمَ
+            </h3>
+
+            <div class="transliteration">
+              fahima
+            </div>
+
+            <div class="translation">
+
+              <strong>to understand</strong>
+
+              <span>
+                понимать · հասկանալ
+              </span>
+
+            </div>
+
+            <div class="word-root">
+              ROOT · ف ـ ه ـ م
+            </div>
+
+            <div class="example">
+
+              <span class="example-label">
+                EXAMPLE
+              </span>
+
+              <p class="example-arabic">
+                فَهِمَ الطَّالِبُ الدَّرْسَ.
+              </p>
+
+              <p>
+                The student understood the lesson.
+              </p>
+
+              <p>
+                Ученик понял урок.
+              </p>
+
+              <p>
+                Ուսանողը հասկացավ դասը։
+              </p>
+
+            </div>
+
+            <button class="details-button">
+              VIEW WORD
+              <span>→</span>
+            </button>
+
+          </article>
+
+        </div>
+
+
+        <!-- =================================================
+             BOOK FOOTER
+        ================================================== -->
+
+        <div class="book-bottom">
+
+          <button
+            id="previousPage"
+            class="page-button"
+          >
+            ← PREVIOUS
+          </button>
+
+          <div class="page-number">
+            <span id="currentPage">01</span>
+          </div>
+
+          <button
+            id="nextPage"
+            class="page-button"
+          >
+            NEXT →
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         WORD OF THE DAY
+    ====================================================== -->
+
+    <section class="word-day">
+
+      <div class="word-day-inner">
+
+        <div>
+
+          <div class="section-label">
+            WORD OF THE DAY
+          </div>
+
+          <div class="word-day-arabic">
+            حُبّ
+          </div>
+
+          <div class="word-day-trans">
+            ḥubb
+          </div>
+
+        </div>
+
+        <div class="word-day-info">
+
+          <h2>
+            Love
+          </h2>
+
+          <p>
+            любовь · սեր
+          </p>
+
+          <p class="word-day-note">
+            A small word can open a whole world.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VERBS
+    ====================================================== -->
+
+    <section class="verbs-section" id="verbs">
+
+      <div class="section-label">
+        VERB LIBRARY
+      </div>
+
+      <div class="verbs-heading">
+
+        <h2>
+          Learn the verbs.
+        </h2>
+
+        <p>
+          Arabic verbs are built around roots.
+          Understanding the root helps you recognize
+          entire families of words.
+        </p>
+
+      </div>
+
+      <div class="verb-features">
+
+        <div class="verb-feature">
+
+          <span class="feature-number">
+            01
+          </span>
+
+          <h3>
+            ROOT
+          </h3>
+
+          <p>
+            ك ـ ت ـ ب
+          </p>
+
+        </div>
+
+
+        <div class="verb-feature">
+
+          <span class="feature-number">
+            02
+          </span>
+
+          <h3>
+            FORM
+          </h3>
+
+          <p>
+            Form I
+          </p>
+
+        </div>
+
+
+        <div class="verb-feature">
+
+          <span class="feature-number">
+            03
+          </span>
+
+          <h3>
+            CONJUGATION
+          </h3>
+
+          <p>
+            Past · Present · Imperative
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section class="about-section" id="about">
+
+      <div class="about-number">
+        01
+      </div>
+
+      <div class="about-content">
+
+        <div class="section-label">
+          ABOUT THE PROJECT
+        </div>
+
+        <h2>
+          Arabic,
+          <em>from the beginning.</em>
+        </h2>
+
+        <p>
+          Arabic From Zero is designed for people who want
+          to understand Arabic rather than simply translate it.
+        </p>
+
+        <p>
+          Every word connects pronunciation, meaning,
+          roots, grammar and real examples.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="site-footer">
 
     <div class="footer-logo">
-        عَرَبِيَّة
+      ARABIC FROM ZERO
     </div>
 
-    <p>
-        Arabic From Zero © 2026
-    </p>
+    <div class="footer-arabic">
+      العربية من الصفر
+    </div>
 
-    <p>
-        Built for learners.
-    </p>
+    <div class="footer-bottom">
 
-</footer>
+      <span>
+        A DIGITAL ARABIC DICTIONARY
+      </span>
+
+      <span>
+        © 2026
+      </span>
+
+    </div>
+
+  </footer>
 
 
-<!-- WORD MODAL -->
+  <!-- =====================================================
+       WORD DETAILS MODAL
+  ====================================================== -->
 
-<div id="wordModal" class="modal">
+  <div
+    class="modal"
+    id="wordModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-overlay"></div>
 
     <div class="modal-content">
 
-        <button id="closeModal" class="close-modal">
-            ×
-        </button>
+      <button
+        class="modal-close"
+        id="modalClose"
+        aria-label="Close"
+      >
+        ×
+      </button>
 
-        <p id="modalLevel" class="modal-level">
-            A1
+      <div class="modal-label">
+        WORD
+      </div>
+
+      <div
+        class="modal-arabic"
+        id="modalArabic"
+      >
+        كَتَبَ
+      </div>
+
+      <div
+        class="modal-transliteration"
+        id="modalTransliteration"
+      >
+        kataba
+      </div>
+
+      <div
+        class="modal-translation"
+        id="modalTranslation"
+      >
+        to write
+      </div>
+
+      <div class="modal-line"></div>
+
+      <div class="conjugation">
+
+        <div class="conjugation-item">
+
+          <span>
+            PAST
+          </span>
+
+          <strong id="modalPast">
+            كَتَبَ
+          </strong>
+
+        </div>
+
+        <div class="conjugation-item">
+
+          <span>
+            PRESENT
+          </span>
+
+          <strong id="modalPresent">
+            يَكْتُبُ
+          </strong>
+
+        </div>
+
+        <div class="conjugation-item">
+
+          <span>
+            IMPERATIVE
+          </span>
+
+          <strong id="modalImperative">
+            اُكْتُبْ
+          </strong>
+
+        </div>
+
+        <div class="conjugation-item">
+
+          <span>
+            MASDAR
+          </span>
+
+          <strong id="modalMasdar">
+            كِتَابَة
+          </strong>
+
+        </div>
+
+      </div>
+
+      <div class="modal-example">
+
+        <span>
+          EXAMPLE
+        </span>
+
+        <p id="modalExample">
+          كَتَبَ الطَّالِبُ رِسَالَةً.
         </p>
 
-        <div id="modalArabic" class="modal-arabic">
-            كِتَاب
-        </div>
-
-        <p id="modalTranscription" class="modal-transcription">
-            kitāb
-        </p>
-
-        <div class="modal-translations">
-
-            <div>
-                <span>ENGLISH</span>
-                <strong id="modalEnglish"></strong>
-            </div>
-
-            <div>
-                <span>РУССКИЙ</span>
-                <strong id="modalRussian"></strong>
-            </div>
-
-            <div>
-                <span>ՀԱՅԵՐԵՆ</span>
-                <strong id="modalArmenian"></strong>
-            </div>
-
-        </div>
-
-        <div class="modal-info">
-
-            <div>
-                <span>TYPE</span>
-                <strong id="modalType"></strong>
-            </div>
-
-            <div>
-                <span>GENDER</span>
-                <strong id="modalGender"></strong>
-            </div>
-
-            <div>
-                <span>PLURAL</span>
-                <strong id="modalPlural"></strong>
-            </div>
-
-            <div>
-                <span>ROOT</span>
-                <strong id="modalRoot"></strong>
-            </div>
-
-        </div>
-
-        <div class="modal-example">
-
-            <span>EXAMPLE</span>
-
-            <p id="modalExampleArabic"></p>
-
-            <p id="modalExampleTranscription"></p>
-
-            <p id="modalExampleEnglish"></p>
-
-            <p id="modalExampleRussian"></p>
-
-            <p id="modalExampleArmenian"></p>
-
-        </div>
-
-        <div class="modal-actions">
-
-            <button id="modalListen">
-                🔊 Listen
-            </button>
-
-            <button id="modalFavorite">
-                ♡ Favorite
-            </button>
-
-        </div>
+      </div>
 
     </div>
 
-</div>
+  </div>
 
 
-<script src="app.js"></script>
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script src="app.js"></script>
 
 </body>
 </html>
-```
-```css
-/* =========================================
-   ARABIC FROM ZERO
-   MAIN STYLESHEET
-========================================= */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background: #f5f2ec;
-    color: #111;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-}
-
-button,
-input {
-    font: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-    height: 76px;
-    padding: 0 5vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #d8d4cc;
-    background: #f5f2ec;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 700;
-}
-
-.logo-arabic {
-    font-family: Georgia, serif;
-    font-size: 28px;
-    font-weight: normal;
-}
-
-.navbar nav {
-    display: flex;
-    gap: 30px;
-}
-
-.navbar nav a {
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.navbar nav a:hover {
-    opacity: .5;
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-    min-height: 680px;
-    padding: 100px 8vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-    position: relative;
-}
-
-.hero-content {
-    max-width: 650px;
-    position: relative;
-    z-index: 2;
-}
-
-.eyebrow,
-.section-label {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.eyebrow {
-    margin-bottom: 25px;
-}
-
-.hero h1 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(70px, 11vw, 150px);
-    font-weight: 400;
-    line-height: .82;
-    letter-spacing: -7px;
-}
-
-.hero h1 span {
-    font-style: italic;
-    margin-left: 60px;
-}
-
-.hero-description {
-    margin-top: 50px;
-    max-width: 400px;
-    font-size: 17px;
-    color: #555;
-}
-
-.hero-button {
-    display: inline-block;
-    margin-top: 35px;
-    padding: 15px 24px;
-    border: 1px solid #111;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transition: .25s;
-}
-
-.hero-button:hover {
-    background: #111;
-    color: #f5f2ec;
-}
-
-.hero-arabic {
-    position: absolute;
-    right: 4vw;
-    bottom: -80px;
-    font-family: Georgia, serif;
-    font-size: min(48vw, 650px);
-    line-height: 1;
-    opacity: .06;
-    direction: rtl;
-}
-
-
-/* =========================================
-   GENERAL SECTIONS
-========================================= */
-
-.search-section,
-.learn-section,
-.quiz-section,
-.about-section {
-    padding: 120px 8vw;
-}
-
-.section-label {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    margin-bottom: 45px;
-}
-
-.section-label span {
-    color: #777;
-}
-
-.search-section h2,
-.learn-section h2,
-.quiz-section h2 {
-    font-family: Georgia, serif;
-    font-size: clamp(50px, 7vw, 95px);
-    line-height: .9;
-    font-weight: 400;
-    letter-spacing: -4px;
-}
-
-
-/* =========================================
-   SEARCH
-========================================= */
-
-.search-box {
-    max-width: 900px;
-    height: 70px;
-    margin-top: 60px;
-    border-bottom: 1px solid #111;
-    display: flex;
-    align-items: center;
-}
-
-.search-icon {
-    font-size: 30px;
-    margin-right: 15px;
-}
-
-.search-box input {
-    flex: 1;
-    height: 100%;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 18px;
-}
-
-.search-box input::placeholder {
-    color: #999;
-}
-
-#clearSearch {
-    border: 0;
-    background: none;
-    font-size: 28px;
-    display: none;
-}
-
-.filters,
-.category-filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 25px;
-}
-
-.filter,
-.category {
-    border: 1px solid #bbb;
-    background: transparent;
-    padding: 8px 14px;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.filter.active,
-.category.active {
-    background: #111;
-    border-color: #111;
-    color: #fff;
-}
-
-.results-header {
-    margin-top: 55px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ccc;
-    display: flex;
-    justify-content: space-between;
-    font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-#favoritesOnly {
-    border: 0;
-    background: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 11px;
-}
-
-
-/* =========================================
-   DICTIONARY CARDS
-========================================= */
-
-.dictionary-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.word-card {
-    min-height: 260px;
-    padding: 30px;
-    border-right: 1px solid #d2cec6;
-    border-bottom: 1px solid #d2cec6;
-    position: relative;
-    transition: background .25s;
-}
-
-.word-card:hover {
-    background: #ebe7df;
-}
-
-.word-level {
-    font-size: 9px;
-    letter-spacing: 2px;
-    color: #777;
-}
-
-.word-arabic {
-    margin-top: 30px;
-    direction: rtl;
-    font-family: Georgia, serif;
-    font-size: 45px;
-}
-
-.word-transcription {
-    font-family: Georgia, serif;
-    font-style: italic;
-    color: #555;
-    margin-top: 5px;
-}
-
-.word-meaning {
-    margin-top: 25px;
-    font-size: 14px;
-}
-
-.word-meaning strong {
-    display: block;
-    font-size: 16px;
-}
-
-.word-meta {
-    margin-top: 15px;
-    font-size: 9px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #777;
-}
-
-.favorite-button {
-    position: absolute;
-    right: 22px;
-    top: 22px;
-    border: none;
-    background: none;
-    font-size: 20px;
-}
-
-.favorite-button.saved {
-    font-size: 19px;
-}
-
-
-/* =========================================
-   WORD OF DAY
-========================================= */
-
-.word-day {
-    background: #111;
-    color: #f5f2ec;
-    padding: 80px 8vw;
-}
-
-.word-day-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1.5fr;
-    gap: 50px;
-    align-items: center;
-}
-
-.word-day .eyebrow {
-    color: #aaa;
-}
-
-#dailyArabic {
-    font-family: Georgia, serif;
-    font-size: 65px;
-    direction: rtl;
-}
-
-#dailyTranscription {
-    font-family: Georgia, serif;
-    font-style: italic;
-    color: #aaa;
-}
-
-.daily-translation p {
-    margin: 7px 0;
-    font-size: 16px;
-}
-
-.daily-example {
-    border-left: 1px solid #555;
-    padding-left: 40px;
-}
-
-#dailyExample {
-    direction: rtl;
-    font-family: Georgia, serif;
-    font-size: 30px;
-}
-
-#dailyListen,
-#modalListen {
-    margin-top: 20px;
-    padding: 10px 15px;
-    border: 1px solid #777;
-    background: transparent;
-    color: inherit;
-}
-
-
-/* =========================================
-   LEARNING LEVELS
-========================================= */
-
-.section-intro {
-    max-width: 500px;
-    margin-top: 35px;
-    color: #666;
-}
-
-.learning-levels {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-top: 80px;
-    border-top: 1px solid #ccc;
-}
-
-.level-card {
-    min-height: 300px;
-    padding: 30px;
-    border-right: 1px solid #ccc;
-    position: relative;
-}
-
-.level-number {
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #999;
-}
-
-.level-card h3 {
-    font-family: Georgia, serif;
-    font-size: 65px;
-    font-weight: 400;
-    margin-top: 35px;
-}
-
-.level-card p {
-    color: #666;
-    font-size: 14px;
-    max-width: 220px;
-}
-
-.level-card button {
-    margin-top: 30px;
-    border: none;
-    background: none;
-    border-bottom: 1px solid #111;
-    padding-bottom: 5px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-
-/* =========================================
-   QUIZ
-========================================= */
-
-.quiz-card {
-    margin: 70px auto 0;
-    max-width: 800px;
-    min-height: 450px;
-    padding: 60px;
-    background: #e9e5dd;
-    text-align: center;
-    position: relative;
-}
-
-.quiz-label {
-    font-size: 10px;
-    letter-spacing: 3px;
-}
-
-.quiz-arabic {
-    margin-top: 45px;
-    font-family: Georgia, serif;
-    font-size: 70px;
-    direction: rtl;
-}
-
-#quizListen {
-    border: none;
-    background: transparent;
-    font-size: 20px;
-}
-
-.quiz-answers {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    max-width: 500px;
-    margin: 40px auto 0;
-}
-
-.quiz-answer {
-    padding: 15px;
-    background: #f5f2ec;
-    border: 1px solid #bbb;
-}
-
-.quiz-answer:hover {
-    border-color: #111;
-}
-
-.quiz-answer.correct {
-    background: #111;
-    color: #fff;
-}
-
-.quiz-answer.wrong {
-    opacity: .4;
-}
-
-.quiz-feedback {
-    min-height: 30px;
-    margin-top: 20px;
-    font-size: 13px;
-}
-
-.next-button {
-    margin-top: 15px;
-    border: none;
-    border-bottom: 1px solid #111;
-    background: none;
-    padding: 8px;
-    text-transform: uppercase;
-    font-size: 10px;
-    letter-spacing: 1px;
-}
-
-
-/* =========================================
-   ABOUT
-========================================= */
-
-.about-section {
-    border-top: 1px solid #ccc;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 100px;
-}
-
-.about-grid h2 {
-    font-family: Georgia, serif;
-    font-weight: 400;
-    font-size: clamp(45px, 6vw, 80px);
-    line-height: .95;
-    letter-spacing: -3px;
-}
-
-.about-grid p {
-    margin-bottom: 25px;
-    max-width: 500px;
-    color: #555;
-}
-
-
-/* =========================================
-   FOOTER
-========================================= */
-
-footer {
-    border-top: 1px solid #ccc;
-    padding: 50px 8vw;
-    display: flex;
-    justify-content: space-between;
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.footer-logo {
-    font-family: Georgia, serif;
-    font-size: 35px;
-}
-
-
-/* =========================================
-   MODAL
-========================================= */
-
-.modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.6);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    z-index: 500;
-}
-
-.modal.show {
-    display: flex;
-}
-
-.modal-content {
-    background: #f5f2ec;
-    width: min(750px, 100%);
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 55px;
-    position: relative;
-}
-
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    background: none;
-    border: none;
-    font-size: 30px;
-}
-
-.modal-level {
-    font-size: 10px;
-    letter-spacing: 3px;
-}
-
-.modal-arabic {
-    margin-top: 25px;
-    direction: rtl;
-    font-family: Georgia, serif;
-    font-size: 75px;
-}
-
-.modal-transcription {
-    font-family: Georgia, serif;
-    font-style: italic;
-    color: #666;
-}
-
-.modal-translations {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 45px;
-    padding: 25px 0;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-}
-
-.modal-translations span,
-.modal-info span,
-.modal-example > span {
-    display: block;
-    font-size: 8px;
-    letter-spacing: 2px;
-    color: #888;
-    margin-bottom: 8px;
-}
-
-.modal-info {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 25px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-.modal-info strong {
-    font-size: 13px;
-}
-
-.modal-example {
-    padding-top: 30px;
-}
-
-.modal-example p {
-    margin: 8px 0;
-}
-
-#modalExampleArabic {
-    direction: rtl;
-    font-family: Georgia, serif;
-    font-size: 32px;
-}
-
-#modalExampleTranscription {
-    font-style: italic;
-    color: #666;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 30px;
-}
-
-.modal-actions button {
-    padding: 12px 18px;
-    border: 1px solid #111;
-    background: transparent;
-}
-
-
-/* =========================================
-   EMPTY STATE
-========================================= */
-
-.empty-state {
-    grid-column: 1 / -1;
-    padding: 80px 20px;
-    text-align: center;
-    color: #777;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
-
-@media (max-width: 900px) {
-
-    .navbar {
-        padding: 0 20px;
-    }
-
-    .navbar nav {
-        display: none;
-    }
-
-    .hero {
-        min-height: 600px;
-        padding: 80px 25px;
-    }
-
-    .hero h1 {
-        font-size: 75px;
-        letter-spacing: -4px;
-    }
-
-    .hero h1 span {
-        margin-left: 20px;
-    }
-
-    .hero-arabic {
-        font-size: 350px;
-        right: -80px;
-        bottom: -30px;
-    }
-
-    .search-section,
-    .learn-section,
-    .quiz-section,
-    .about-section {
-        padding: 80px 25px;
-    }
-
-    .dictionary-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .word-card {
-        border-right: none;
-    }
-
-    .word-day-inner {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .daily-example {
-        border-left: none;
-        border-top: 1px solid #555;
-        padding: 25px 0 0;
-    }
-
-    .learning-levels {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .level-card:nth-child(2) {
-        border-right: none;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .quiz-card {
-        padding: 40px 20px;
-    }
-
-    .quiz-answers {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-content {
-        padding: 40px 25px;
-    }
-
-    .modal-translations {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-info {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    footer {
-        padding: 40px 25px;
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-
-@media (max-width: 500px) {
-
-    .hero h1 {
-        font-size: 62px;
-    }
-
-    .learning-levels {
-        grid-template-columns: 1fr;
-    }
-
-    .level-card {
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-    }
-
-    .search-box input {
-        font-size: 14px;
-    }
-
-    #dailyArabic {
-        font-size: 50px;
-    }
-
-    .modal-arabic {
-        font-size: 55px;
-    }
-
-}
-```
